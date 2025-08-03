@@ -6,16 +6,24 @@ function ModalFormDisciplina({ isOpen, onClose, buscarDisciplinas }) {
   const criarDisciplina = async (e) => {
     e.preventDefault()
 
-    await fetch('http://localhost:3000/disciplinas', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome: nomeDisciplina }),
-    })
-
-    console.log('Disciplina salva:', nomeDisciplina)
-    setNomeDisciplina('')
-    buscarDisciplinas()
-    onClose()
+    try {
+      const res = await fetch('http://localhost:3000/disciplinas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome: nomeDisciplina }),
+      })
+      if (!res.ok) {
+        throw new Error('Erro ao criar disciplina')
+      }
+      console.log('Disciplina salva:', nomeDisciplina)
+      alert('Disciplina salva: ' + nomeDisciplina)
+      setNomeDisciplina('')
+      buscarDisciplinas()
+      onClose()
+    } catch (error) {
+      console.error('Erro ao criar disciplina:', error)
+      alert('Erro ao criar disciplina. Tente novamente.')
+    }
   }
 
   const handleClose = () => {

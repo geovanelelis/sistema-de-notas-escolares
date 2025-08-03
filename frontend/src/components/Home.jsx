@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import ModalFormDisciplina from './ModalFormDisciplina'
+import ModalFormAluno from './ModalFormAluno'
 
 function Home() {
   const [isDisciplinaModalOpen, setIsDisciplinaModalOpen] = useState(false)
+  const [isAlunoModalOpen, setIsAlunoModalOpen] = useState(false)
   const [disciplinas, setDisciplinas] = useState([])
 
   const buscarDisciplinas = async () => {
@@ -26,6 +28,12 @@ function Home() {
           >
             Adicionar Disciplina
           </button>
+          <button
+            onClick={() => setIsAlunoModalOpen(true)}
+            className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors"
+          >
+            Adicionar Aluno
+          </button>
         </div>
       </div>
 
@@ -44,10 +52,21 @@ function Home() {
         )}
       </div>
 
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800">Alunos Cadastrados</h2>
+        <div className="text-gray-500 text-center py-8">Nenhum aluno cadastrado ainda.</div>
+      </div>
+
       <ModalFormDisciplina
         isOpen={isDisciplinaModalOpen}
         onClose={() => setIsDisciplinaModalOpen(false)}
         buscarDisciplinas={buscarDisciplinas}
+      />
+
+      <ModalFormAluno
+        isOpen={isAlunoModalOpen}
+        onClose={() => setIsAlunoModalOpen(false)}
+        disciplinas={disciplinas}
       />
     </div>
   )
