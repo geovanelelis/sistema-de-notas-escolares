@@ -76,6 +76,10 @@ app.post('/disciplinas', async (req, res) => {
   }
 })
 
+app.get('/', (req, res) => {
+  res.send('Servidor funcionando!')
+})
+
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`)
 })
