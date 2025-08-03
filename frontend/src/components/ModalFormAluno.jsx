@@ -4,6 +4,7 @@ function ModalFormAluno({ isOpen, onClose, buscarAlunos, disciplinas }) {
   const [nomeAluno, setNomeAluno] = useState('')
   const [frequencia, setFrequencia] = useState('')
   const [notas, setNotas] = useState({})
+  const api = import.meta.env.VITE_API_URL
 
   const cadastrarAluno = async (e) => {
     e.preventDefault()
@@ -18,7 +19,7 @@ function ModalFormAluno({ isOpen, onClose, buscarAlunos, disciplinas }) {
     }
 
     try {
-      const res = await fetch('http://localhost:3000/alunos', {
+      const res = await fetch(`${api}/alunos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(alunoData),

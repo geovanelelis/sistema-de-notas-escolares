@@ -9,15 +9,16 @@ function Home() {
   const [disciplinas, setDisciplinas] = useState([])
   const [alunos, setAlunos] = useState([])
   const [showResultados, setShowResultados] = useState(false)
+  const api = import.meta.env.VITE_API_URL
 
   const buscarDisciplinas = async () => {
-    const res = await fetch('http://localhost:3000/disciplinas')
+    const res = await fetch(`${api}/disciplinas`)
     const data = await res.json()
     setDisciplinas(data)
   }
 
   const buscarAlunos = async () => {
-    const res = await fetch('http://localhost:3000/alunos')
+    const res = await fetch(`${api}/alunos`)
     const data = await res.json()
     setAlunos(data)
   }

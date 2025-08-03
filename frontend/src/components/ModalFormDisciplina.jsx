@@ -2,12 +2,13 @@ import { useState } from 'react'
 
 function ModalFormDisciplina({ isOpen, onClose, buscarDisciplinas }) {
   const [nomeDisciplina, setNomeDisciplina] = useState('')
+  const api = import.meta.env.VITE_API_URL
 
   const criarDisciplina = async (e) => {
     e.preventDefault()
 
     try {
-      const res = await fetch('http://localhost:3000/disciplinas', {
+      const res = await fetch(`${api}/disciplinas`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome: nomeDisciplina }),
