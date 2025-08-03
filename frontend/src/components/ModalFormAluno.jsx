@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-function ModalFormAluno({ isOpen, onClose, disciplinas }) {
+function ModalFormAluno({ isOpen, onClose, buscarAlunos, disciplinas }) {
   const [nomeAluno, setNomeAluno] = useState('')
   const [frequencia, setFrequencia] = useState('')
   const [notas, setNotas] = useState({})
@@ -33,6 +33,7 @@ function ModalFormAluno({ isOpen, onClose, disciplinas }) {
       setNomeAluno('')
       setFrequencia('')
       setNotas({})
+      buscarAlunos()
       onClose()
     } catch (error) {
       console.error('Erro ao cadastrar aluno:', error)
