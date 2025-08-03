@@ -27,9 +27,11 @@ Este projeto é um sistema de notas escolares desenvolvido para auxiliar profess
 
 ## 🌐 Deploy
 
-A interface está hospedada na Vercel (frontend) e com integração GitHub:
+A interface está hospedada na Vercel (frontend) e no Render (backend) com integração GitHub:
 
 [https://sistema-de-notas-escolares.vercel.app/](https://sistema-de-notas-escolares.vercel.app/)
+
+[https://sistema-de-notas-escolares.onrender.com/](https://sistema-de-notas-escolares.onrender.com/)
 
 ## 📁 Clonando o Repositório
 
