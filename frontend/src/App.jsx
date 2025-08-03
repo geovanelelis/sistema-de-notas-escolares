@@ -1,5 +1,5 @@
 function App() {
-  return <h1>Sistema Escolar</h1>
+  return <div className="p-6"></div>
 }
 
 export default App
